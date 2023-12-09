@@ -45,7 +45,8 @@ class NetworkNode(models.Model):
     )
 
     name = models.CharField(max_length=200, verbose_name='название')
-    type_network = models.CharField(max_length=100, choices=TYPE_SUPPLIER_CHOICES, default='Завод', verbose_name='тип объекта сети')
+    type_network = models.CharField(max_length=100, choices=TYPE_SUPPLIER_CHOICES, default='Завод',
+                                    verbose_name='тип объекта сети')
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE, verbose_name='контакты')
     products = models.ManyToManyField(Product, verbose_name='продукты')
     supplier = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='поставщик', **NULLABLE)
